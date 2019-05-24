@@ -1,5 +1,5 @@
 <p align="center">
-    <h1 align="center">Yii2 User Extension</h1>
+    <h1 align="center">Yii2 RBAC USER Extension</h1>
     <br>
 </p>
 
@@ -11,13 +11,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist denchotsanov/yii2usermodule "*"
+php composer.phar require --prefer-dist denchotsanov/yii2-user-module "*"
 ```
 
 or add
 
 ```
-"denchotsanov/yii2usermodule": "*"
+"denchotsanov/yii2-user-module ": "*"
 ```
 
 to the require section of your composer.json.
