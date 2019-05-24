@@ -8,7 +8,7 @@ class RbacAsset extends AssetBundle
     /**
      * @var string
      */
-    public $sourcePath = '@vendor/denchotsanov/yii2rbac/assets';
+    public $sourcePath = '@vendor/denchotsanov/yii2-user-rbac/assets';
     /**
      * @var array
      */

@@ -1,8 +1,10 @@
 <?php
+
+
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\DetailView;
-use denchotsanov\rbac\RbacAssest;
+use denchotsanov\rbac\RbacAsset;
 RbacAsset::register($this);
 
 /* @var $this \yii\web\View */
