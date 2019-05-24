@@ -1,7 +1,16 @@
 <p align="center">
+    <a href="https://github.com/yiisoft" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    </a>
     <h1 align="center">Yii2 RBAC USER Extension</h1>
     <br>
 </p>
+
+[![Latest Stable Version](https://poser.pugx.org/denchotsanov/yii2-user-rbac/v/stable)](https://packagist.org/packages/denchotsanov/yii2-user)
+[![Total Downloads](https://poser.pugx.org/denchotsanov/yii2-user-rbac/downloads)](https://packagist.org/packages/denchotsanov/yii2-user)
+[![Latest Unstable Version](https://poser.pugx.org/denchotsanov/yii2-user-rbac/v/unstable)](https://packagist.org/packages/denchotsanov/yii2-user)
+[![License](https://poser.pugx.org/denchotsanov/yii2-user-rbac/license)](https://packagist.org/packages/denchotsanov/yii2-user)
+
 
 Installation
 ------------
@@ -11,7 +20,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist denchotsanov/yii2-user-rbac "*"
+composer require --prefer-dist denchotsanov/yii2-user-rbac "*"
 ```
 
 or add
@@ -22,100 +31,129 @@ or add
 
 to the require section of your composer.json.
 
-Configuration
-=============
-1) If you use this extension, then you need execute migration by the following command:
-```
-php yii migrate/up --migrationPath=@vendor/denchotsanov/yii2user/migrations
-```
-or
+Usage
+------------
+Once the extension is installed, simply modify your application configuration as follows:
 
-add in console config file add 
+```php
+return [
+    'modules' => [
+        'rbac' => [
+            'class' => 'denchotsanov\rbac\Module',
+        ],
+    ],
+    'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+    ],
+];
+```
+After you downloaded and configured Yii2-rbac, the last thing you need to do is updating your database schema by 
+applying the migration:
+ 
+```bash
+$ php yii migrate/up --migrationPath=@yii/rbac/migrations
+```
+or add in console config file
 ```
 'controllerMap' => [
         'migrate' => [
             'class' => 'yii\console\controllers\MigrateController',
             'migrationPath' => [
-                '@app/migrations',
-                '@vendor/denchotsanov/yii2-user-rbac/migrations',
+                ...
+                '@yii/rbac/migrations',
                 ...
             ],
         ],
     ],
 ```
-2) You need to configure the `params` section in your project configuration:
-```php
-'params' => [
-   'user.passwordResetTokenExpire' => 3600
-]
-```
-3) Your need to create the UserModel class that be extends of [UserModel](https://github.com/yii2mod/yii2-user/blob/master/models/BaseUserModel.php) and configure the property `identityClass` for `user` component in your project configuration, for example:
-```php
-'user' => [
-    'identityClass' => 'yii2mod\user\models\UserModel',
-    // for update last login date for user, you can call the `afterLogin` event as follows
-    'on afterLogin' => function ($event) {
-        $event->identity->updateLastLogin();
-    }
-],
-```
-
-4) For sending emails you need to configure the `mailer` component in the configuration of your project.
-
-5) If you don't have the `passwordResetToken.php` template file in the mail folder of your project, then you need to create it, for example:
-```php
-<?php
-
-use yii\helpers\Html;
-
-/* @var $this yii\web\View */
-/* @var $user */
-
-$resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/password-reset', 'token' => $user->password_reset_token]);
-?>
-
-Hello <?php echo Html::encode($user->username) ?>,
-
-Follow the link below to reset your password:
-
-<?php echo Html::a(Html::encode($resetLink), $resetLink) ?>
+You can then access Auth manager through the following URL:
 
 ```
-> This template used for password reset email.
+[SERVER]/rbac/
+[SERVER]/rbac/route
+[SERVER]/rbac/permission
+[SERVER]/rbac/role
+[SERVER]/rbac/assignment
+```
 
-6) Add to SiteController (or configure via `$route` param in urlManager):
+**Applying rules:**
+
+1) For applying rules only for `controller` add the following code:
 ```php
-    /**
-     * @return array
-     */
-    public function actions()
+use denchotsanov\rbac\filters\AccessControl;
+
+class ExampleController extends Controller 
+{
+    public function behaviors()
     {
         return [
-            'login' => [
-                'class' => 'yii2mod\user\actions\LoginAction'
-            ],
-            'logout' => [
-                'class' => 'yii2mod\user\actions\LogoutAction'
-            ],
-            'signup' => [
-                'class' => 'yii2mod\user\actions\SignupAction'
-            ],
-            'request-password-reset' => [
-                'class' => 'yii2mod\user\actions\RequestPasswordResetAction'
-            ],
-            'password-reset' => [
-                'class' => 'yii2mod\user\actions\PasswordResetAction'
+            'access' => [
+                'class' => AccessControl::class,
+                'allowActions' => [
+                    'index',
+                    // The actions listed here will be allowed to everyone including guests.
+                ]
             ],
         ];
     }
+}
 ```
+2) For applying rules for `module` add the following code:
+```php
 
-You can then access to this actions through the following URL:
+use Yii;
+use denchotsanov\rbac\filters\AccessControl;
 
-1. http://localhost/site/login
-2. http://localhost/site/logout
-3. http://localhost/site/signup
-4. http://localhost/site/request-password-reset
-5. http://localhost/site/password-reset
+/**
+ * Class Module
+ */
+class Module extends \yii\base\Module
+{
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+            AccessControl::class
+        ];
+    }
+}
+```
+3) Also you can apply rules via main configuration:
+```php
+// apply for single module
 
-7) Also some actions send flash messages, so you should use an AlertWidget to render flash messages on your site.
+'modules' => [
+    'rbac' => [
+        'class' => 'denchotsanov\rbac\Module',
+        'as access' => [
+            'class' => denchotsanov\rbac\filters\AccessControl::class
+        ],
+    ]
+]
+
+// or apply globally for whole application
+
+'modules' => [
+    ...
+],
+'components' => [
+    ...
+],
+'as access' => [
+    'class' => denchotsanov\rbac\filters\AccessControl::class,
+    'allowActions' => [
+        'site/*',
+        'admin/*',
+        // The actions listed here will be allowed to everyone including guests.
+        // So, 'admin/*' should not appear here in the production, of course.
+        // But in the earlier stages of your development, you may probably want to
+        // add a lot of actions here until you finally completed setting up rbac,
+        // otherwise you may not even take a first step.
+    ]
+ ],
+
+```
