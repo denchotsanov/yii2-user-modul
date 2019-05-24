@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this \yii\web\View */
-/* @var $model \denchotsanov\yii2rbac\models\BizRuleModel */
+/* @var $model \denchotsanov\rbac\models\BizRuleModel */
 ?>
 <div class="rule-item-form">
     <?php $form = ActiveForm::begin(); ?>

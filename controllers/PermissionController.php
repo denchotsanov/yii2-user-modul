@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac\controllers;
+namespace denchotsanov\rbac\controllers;
 
 use yii\rbac\Item;
 

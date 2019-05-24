@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model denchotsanov\yii2rbac\models\AuthItemModel */
+/* @var $model denchotsanov\rbac\models\AuthItemModel */
 
 ?>
 <div class="auth-item-form">

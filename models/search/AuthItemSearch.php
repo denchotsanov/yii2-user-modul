@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac\models\search;
+namespace denchotsanov\rbac\models\search;
 
 
 use Yii;
@@ -10,7 +10,7 @@ use dosamigos\arrayquery\ArrayQuery;
 /**
  * Class AuthItemSearch
  *
- * @package denchotsanov\yii2rbac\models\search
+ * @package denchotsanov\rbac\models\search
  */
 class AuthItemSearch extends Model
 {

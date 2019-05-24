@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\DetailView;
-use denchotsanov\yii2rbac\RbacAssest;
+use denchotsanov\rbac\RbacAssest;
 RbacAsset::register($this);
 
 /* @var $this \yii\web\View */
-/* @var $model \denchotsanov\yii2rbac\models\AuthItemModel */
+/* @var $model \denchotsanov\rbac\models\AuthItemModel */
 
 $labels = $this->context->getLabels();
 $this->title = Yii::t('denchotsanov.rbac', $labels['Item'] . ' : {0}', $model->name);

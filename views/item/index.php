@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 
 /* @var $this \yii\web\View */
 /* @var $dataProvider \yii\data\ArrayDataProvider */
-/* @var $searchModel \denchotsanov\yii2rbac\models\search\AuthItemSearch|object */
+/* @var $searchModel \denchotsanov\rbac\models\search\AuthItemSearch|object */
 
 $labels = $this->context->getLabels();
 $this->title = Yii::t('denchotsanov.rbac', $labels['Items']);

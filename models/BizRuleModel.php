@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac\models;
+namespace denchotsanov\rbac\models;
 
 use Yii;
 use yii\base\Model;
@@ -7,7 +7,7 @@ use yii\rbac\Rule;
 /**
  * Class BizRuleModel
  *
- * @package denchotsanov\yii2rbac\models
+ * @package denchotsanov\rbac\models
  */
 class BizRuleModel extends Model
 {

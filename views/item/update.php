@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
-/* @var $model \denchotsanov\yii2rbac\models\AuthItemModel */
+/* @var $model \denchotsanov\rbac\models\AuthItemModel */
 
 $context = $this->context;
 $labels = $this->context->getLabels();

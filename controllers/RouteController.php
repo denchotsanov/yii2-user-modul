@@ -1,11 +1,11 @@
 <?php
-namespace denchotsanov\yii2rbac\controllers;
+namespace denchotsanov\rbac\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use denchotsanov\yii2rbac\models\RouteModel;
+use denchotsanov\rbac\models\RouteModel;
 
 class RouteController extends Controller
 {

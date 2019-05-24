@@ -1,13 +1,13 @@
 <?php
-namespace denchotsanov\yii2rbac\controllers;
+namespace denchotsanov\rbac\controllers;
 
 use Yii;
 use yii\base\InvalidConfigException as InvalidConfigExceptionAlias;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
-use denchotsanov\yii2rbac\models\AssignmentModel;
-use denchotsanov\yii2rbac\models\search\AssignmentSearch;
+use denchotsanov\rbac\models\AssignmentModel;
+use denchotsanov\rbac\models\search\AssignmentSearch;
 
 class AssignmentController extends Controller
 {

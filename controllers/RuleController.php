@@ -1,12 +1,12 @@
 <?php
-namespace denchotsanov\yii2rbac\controllers;
+namespace denchotsanov\rbac\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use denchotsanov\yii2rbac\models\BizRuleModel;
-use denchotsanov\yii2rbac\models\search\BizRuleSearch;
+use denchotsanov\rbac\models\BizRuleModel;
+use denchotsanov\rbac\models\search\BizRuleSearch;
 
 /**
  * Class RuleController

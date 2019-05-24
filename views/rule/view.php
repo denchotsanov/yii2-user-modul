@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 /* @var $this \yii\web\View */
-/* @var $model \denchotsanov\yii2rbac\models\BizRuleModel */
+/* @var $model \denchotsanov\rbac\models\BizRuleModel */
 
 $this->title = Yii::t('denchotsanov.rbac', 'Rule : {0}', $model->name);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('denchotsanov.rbac', 'Rules'), 'url' => ['index']];

@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac\models;
+namespace denchotsanov\rbac\models;
 
 use Yii;
 use yii\base\Model;

@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 
 /* @var $this \yii\web\View */
 /* @var $dataProvider \yii\data\ActiveDataProvider */
-/* @var $searchModel \denchotsanov\yii2rbac\models\search\AssignmentSearch|object */
+/* @var $searchModel \denchotsanov\rbac\models\search\AssignmentSearch|object */
 /* @var $gridViewColumns array */
 
 $this->title = Yii::t('denchotsanov.rbac', 'Assignments');

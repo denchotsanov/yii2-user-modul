@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac;
+namespace denchotsanov\rbac;
 
 use yii\web\AssetBundle;
 

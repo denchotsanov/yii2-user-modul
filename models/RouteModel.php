@@ -1,7 +1,7 @@
 <?php
 
 
-namespace denchotsanov\yii2rbac\models;
+namespace denchotsanov\rbac\models;
 
 use Yii;
 use yii\base\BaseObject;
@@ -13,7 +13,7 @@ use yii\helpers\VarDumper;
 /**
  * Class RouteModel
  *
- * @package denchotsanov\yii2rbac\models
+ * @package denchotsanov\rbac\models
  */
 class RouteModel extends BaseObject
 {

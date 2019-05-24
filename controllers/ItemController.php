@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2rbac\controllers;
+namespace denchotsanov\rbac\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
@@ -7,8 +7,8 @@ use yii\rbac\Item;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
-use denchotsanov\yii2rbac\models\AuthItemModel;
-use denchotsanov\yii2rbac\models\search\AuthItemSearch;
+use denchotsanov\rbac\models\AuthItemModel;
+use denchotsanov\rbac\models\search\AuthItemSearch;
 
 class ItemController extends Controller
 {
