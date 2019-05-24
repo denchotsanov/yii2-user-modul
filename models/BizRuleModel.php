@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2usermodule\models;
+namespace denchotsanov\yii2rbac\models;
 
 use Yii;
 use yii\base\Model;
@@ -7,7 +7,7 @@ use yii\rbac\Rule;
 /**
  * Class BizRuleModel
  *
- * @package denchotsanov\yii2usermodule\models
+ * @package denchotsanov\yii2rbac\models
  */
 class BizRuleModel extends Model
 {
@@ -70,12 +70,12 @@ class BizRuleModel extends Model
     public function classExists()
     {
         if (!class_exists($this->className)) {
-            $message = Yii::t('yii2module.user', "Unknown class '{class}'", ['class' => $this->className]);
+            $message = Yii::t('denchotsanov.rbac', "Unknown class '{class}'", ['class' => $this->className]);
             $this->addError('className', $message);
             return;
         }
         if (!is_subclass_of($this->className, Rule::class)) {
-            $message = Yii::t('yii2module.user', "'{class}' must extend from 'yii\\rbac\\Rule' or its child class", [
+            $message = Yii::t('denchotsanov.rbac', "'{class}' must extend from 'yii\\rbac\\Rule' or its child class", [
                 'class' => $this->className, ]);
             $this->addError('className', $message);
         }
@@ -86,8 +86,8 @@ class BizRuleModel extends Model
     public function attributeLabels(): array
     {
         return [
-            'name' => Yii::t('yii2module.user', 'Name'),
-            'className' => Yii::t('yii2module.user', 'Class Name'),
+            'name' => Yii::t('denchotsanov.rbac', 'Name'),
+            'className' => Yii::t('denchotsanov.rbac', 'Class Name'),
         ];
     }
     /**

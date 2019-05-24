@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2usermodule\models;
+namespace denchotsanov\yii2rbac\models;
 
 use Yii;
 use yii\base\Model;
@@ -115,10 +115,10 @@ class AuthItemModel extends Model
                     $rule->name = $name;
                     $this->manager->add($rule);
                 } else {
-                    $this->addError('ruleName', Yii::t('yii2module.user', 'Invalid rule "{value}"', ['value' => $name]));
+                    $this->addError('ruleName', Yii::t('denchotsanov.rbac', 'Invalid rule "{value}"', ['value' => $name]));
                 }
             } catch (\Exception $exc) {
-                $this->addError('ruleName', Yii::t('yii2module.user', 'Rule "{value}" does not exists', ['value' => $name]));
+                $this->addError('ruleName', Yii::t('denchotsanov.rbac', 'Rule "{value}" does not exists', ['value' => $name]));
             }
         }
     }
@@ -129,11 +129,11 @@ class AuthItemModel extends Model
     public function attributeLabels(): array
     {
         return [
-            'name' => Yii::t('yii2module.user', 'Name'),
-            'type' => Yii::t('yii2module.user', 'Type'),
-            'description' => Yii::t('yii2module.user', 'Description'),
-            'ruleName' => Yii::t('yii2module.user', 'Rule Name'),
-            'data' => Yii::t('yii2module.user', 'Data'),
+            'name' => Yii::t('denchotsanov.rbac', 'Name'),
+            'type' => Yii::t('denchotsanov.rbac', 'Type'),
+            'description' => Yii::t('denchotsanov.rbac', 'Description'),
+            'ruleName' => Yii::t('denchotsanov.rbac', 'Rule Name'),
+            'data' => Yii::t('denchotsanov.rbac', 'Data'),
         ];
     }
 

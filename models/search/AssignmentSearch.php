@@ -1,13 +1,13 @@
 <?php
 
-namespace denchotsanov\yii2usermodule\models\search;
+namespace denchotsanov\yii2rbac\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 /**
  * Class AssignmentSearch
  *
- * @package denchotsanov\yii2usermodule\models\search
+ * @package denchotsanov\yii2rbac\models\search
  */
 class AssignmentSearch extends Model
 {

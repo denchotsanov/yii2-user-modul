@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2usermodule\filter;
+namespace denchotsanov\yii2rbac\filter;
 
 use Yii;
 use yii\base\Action;
@@ -9,7 +9,7 @@ use yii\helpers\Url;
 /**
  * Class AccessControl
  *
- * @package denchotsanov\yii2usermodule\filters
+ * @package denchotsanov\yii2rbac\filters
  */
 class AccessControl extends \yii\filters\AccessControl
 {

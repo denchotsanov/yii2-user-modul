@@ -1,6 +1,6 @@
 <?php
 
-namespace denchotsanov\yii2usermodule;
+namespace denchotsanov\yii2rbac;
 
 /**
  *
@@ -34,6 +34,6 @@ class Module extends \yii\base\Module
     /**
      * @var string the namespace that controller classes are in
      */
-    public $controllerNamespace = 'denchotsanov\yii2usermodule\controllers';
+    public $controllerNamespace = 'denchotsanov\yii2rbac\controllers';
 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2usermodule\models\search;
+namespace denchotsanov\yii2rbac\models\search;
 
 
 use Yii;
@@ -10,7 +10,7 @@ use dosamigos\arrayquery\ArrayQuery;
 /**
  * Class AuthItemSearch
  *
- * @package denchotsanov\yii2usermodule\models\search
+ * @package denchotsanov\yii2rbac\models\search
  */
 class AuthItemSearch extends Model
 {
@@ -51,11 +51,11 @@ class AuthItemSearch extends Model
     public function attributeLabels(): array
     {
         return [
-            'name' => Yii::t('yii2module.user', 'Name'),
-            'type' => Yii::t('yii2module.user', 'Type'),
-            'description' => Yii::t('yii2module.user', 'Description'),
-            'rule' => Yii::t('yii2module.user', 'Rule'),
-            'data' => Yii::t('yii2module.user', 'Data'),
+            'name' => Yii::t('denchotsanov.rbac', 'Name'),
+            'type' => Yii::t('denchotsanov.rbac', 'Type'),
+            'description' => Yii::t('denchotsanov.rbac', 'Description'),
+            'rule' => Yii::t('denchotsanov.rbac', 'Rule'),
+            'data' => Yii::t('denchotsanov.rbac', 'Data'),
         ];
     }
     /**

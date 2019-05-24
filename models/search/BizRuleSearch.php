@@ -1,5 +1,5 @@
 <?php
-namespace denchotsanov\yii2usermodule\models\search;
+namespace denchotsanov\yii2rbac\models\search;
 
 use Yii;
 use yii\base\Model;
@@ -8,7 +8,7 @@ use dosamigos\arrayquery\ArrayQuery;
 /**
  * Class BizRuleSearch
  *
- * @package denchotsanov\yii2usermodule\models\search
+ * @package denchotsanov\yii2rbac\models\search
  */
 class BizRuleSearch extends Model
 {

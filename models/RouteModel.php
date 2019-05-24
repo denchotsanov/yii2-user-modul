@@ -1,7 +1,7 @@
 <?php
 
 
-namespace denchotsanov\yii2usermodule\models;
+namespace denchotsanov\yii2rbac\models;
 
 use Yii;
 use yii\base\BaseObject;
@@ -13,14 +13,14 @@ use yii\helpers\VarDumper;
 /**
  * Class RouteModel
  *
- * @package denchotsanov\yii2usermodule\models
+ * @package denchotsanov\yii2rbac\models
  */
 class RouteModel extends BaseObject
 {
     /**
      * @var string cache tag
      */
-    const CACHE_TAG = 'yii2module.user.route';
+    const CACHE_TAG = 'denchotsanov.rbac.route';
     /**
      * @var \yii\caching\Cache
      */

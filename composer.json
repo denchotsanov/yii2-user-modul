@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "denchotsanov\\": ""
+            "denchotsanov\\yii2rbac": ""
         }
     }
 }

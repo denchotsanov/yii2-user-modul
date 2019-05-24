@@ -1,6 +1,6 @@
 <?php
 
-namespace denchotsanov\yii2usermodule\models;
+namespace denchotsanov\yii2rbac\models;
 
 use Yii;
 use yii\base\BaseObject;
