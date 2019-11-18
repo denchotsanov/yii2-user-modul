@@ -1,6 +1,7 @@
 <?php
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this \yii\web\View */
@@ -52,7 +53,9 @@ $this->render('/layouts/_sidebar');
             <div class="card card-lime card-outline card-tabs">
                 <div class="card-body">
                     <div class="row">
-                        <?php echo Html::a(Yii::t('denchotsanov.rbac', 'Create Rule'), ['create'], ['class' => 'btn btn-app']); ?>
+                        <a href="<?= Url::to(['create']); ?>" class="btn btn-app">
+                            <i class="fas fa-eye"></i><?= Yii::t('denchotsanov.rbac', 'Create Rule'); ?>
+                        </a>
                     </div>
                 </div>
             </div>
