@@ -12,37 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->render('/layouts/_sidebar');
 ?>
 <div class="role-index">
-
-    <h1><?php echo Html::encode($this->title); ?></h1>
-
-    <p>
-        <?php echo Html::a(Yii::t('denchotsanov.rbac', 'Create Rule'), ['create'], ['class' => 'btn btn-success']); ?>
-    </p>
-
-    <?php Pjax::begin(['timeout' => 5000]); ?>
-
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'name',
-                'label' => Yii::t('denchotsanov.rbac', 'Name'),
-            ],
-            [
-                'header' => Yii::t('denchotsanov.rbac', 'Action'),
-                'class' => 'yii\grid\ActionColumn',
-            ],
-        ],
-    ]);
-    ?>
-
-    <?php Pjax::end(); ?>
-</div>
-
-
-<div class="assignment-index">
     <div class="row">
         <div class="col-9">
             <div class="card card-orange card-outline card-tabs">
@@ -83,6 +52,7 @@ $this->render('/layouts/_sidebar');
             <div class="card card-lime card-outline card-tabs">
                 <div class="card-body">
                     <div class="row">
+                        <?php echo Html::a(Yii::t('denchotsanov.rbac', 'Create Rule'), ['create'], ['class' => 'btn btn-app']); ?>
                     </div>
                 </div>
             </div>
