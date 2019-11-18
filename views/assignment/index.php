@@ -1,4 +1,5 @@
 <?php
+
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -14,17 +15,42 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->render('/layouts/_sidebar');
 ?>
 <div class="assignment-index">
-    <h1><?php echo Html::encode($this->title); ?></h1>
-    <?php Pjax::begin(['timeout' => 5000]); ?>
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => ArrayHelper::merge($gridViewColumns, [
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
-            ],
-        ]),
-    ]); ?>
-    <?php Pjax::end(); ?>
+    <div class="row">
+        <div class="col-9">
+            <div class="card card-orange card-outline card-tabs">
+                <div class="card-header with-border"></div>
+                <div class="card-body table-responsive no-padding">
+                    <?php Pjax::begin(['timeout' => 5000]); ?>
+                    <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'filterModel' => $searchModel,
+                        'layout' => "{items}\n{summary}\n{pager}",
+                        'columns' => ArrayHelper::merge($gridViewColumns, [
+                            [
+                                'class' => 'yii\grid\ActionColumn',
+                                'template' => '{view}',
+                                'buttons' => [
+                                    'view' => function ($url, $model, $key) {
+                                        return Html::a('<span class="fas fa-pen"></span> ' . Yii::t('denchotsanov.rbac',
+                                                'View'),
+                                            $url, ['class' => 'btn btn-info btn-sm']);
+                                    },
+
+                                ]
+                            ]
+                        ])
+                    ]); ?>
+                    <?php Pjax::end(); ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card card-lime card-outline card-tabs">
+                <div class="card-body">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
